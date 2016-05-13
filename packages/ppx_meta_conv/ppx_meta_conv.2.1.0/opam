@@ -14,7 +14,7 @@ remove: [
   [ "ocaml" "setup.ml" "-uninstall" ]
 ]
 available: [
-  ocaml-version >= "4.02.1"
+  ocaml-version >= "4.02.1" & ocaml-version < "4.03.0"
 ]
 homepage: "https://bitbucket.org/camlspotter/ppx_meta_conv"
 depends: [
@@ -31,3 +31,4 @@ conflicts: [
   "tiny_json" { < "1.1.0" }
   "sexplib" { < "112.24.01" }
 ]
+patches: "patch-oasis-ppx_meta_conv.2.1.0" {os = "win32"}
