@@ -14,9 +14,9 @@ depends: [
 ]
 depopts: [ "uutf" "cmdliner" ]
 conflicts: [
-  "uutf" {< "0.9.4"}
+  "uutf" {!= "0.9.4"}
 ]
-build: 
+build:
 [
   [ "ocaml" "pkg/git.ml" ]
   [ "ocaml" "pkg/build.ml" "native=%{ocaml-native}%"
@@ -24,4 +24,4 @@ build:
                            "uutf=%{uutf:installed}%"
                            "cmdliner=%{cmdliner:installed}%" ]
 ]
-patches: [ "patch-aa" ]
+patches: "patch-topkg-uunf.1.0.0" {os = "win32"}

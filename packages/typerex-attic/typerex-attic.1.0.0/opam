@@ -16,7 +16,7 @@ install: [
 remove: [
   [ "rm" "-f" "%{prefix}%/bin/ocp-check-crcs" ]
   [ "rm" "-f" "%{prefix}%/bin/ocp-check-poly" ]
-  [ "rm" "-f" "%{prefix}%/bin/ocp-check-global" ]
+  [ "rm" "-f" "%{prefix}%/bin/ocp-check-globals" ]
   [ "rm" "-f" "%{prefix}%/bin/ocp-check-headers" ]
   [ "rm" "-f" "%{prefix}%/bin/ocp-imports" ]
   [ "rm" "-f" "%{prefix}%/bin/ocp-manager" ]
@@ -24,6 +24,6 @@ remove: [
   [ "rm" "-f" "%{prefix}%/bin/ocp-pack" ]
 ]
 depends: [
-    "ocp-build" {>= "1.99.11-beta"}
+    "ocp-build" {>= "1.99.11-beta" & < "1.99.17-beta" }
   ]
-available: [ocaml-version >= "4.00.0"]
+available: [ocaml-version >= "4.00.0" & ocaml-version < "4.03"]

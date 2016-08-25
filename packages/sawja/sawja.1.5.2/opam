@@ -1,0 +1,18 @@
+opam-version: "1.2"
+maintainer: "sawja@inria.fr"
+build: [
+  ["./configure.sh"]
+  [make]
+]
+remove: [
+  ["ocamlfind" "remove" "sawja"]
+]
+bug-reports: "sawja@inria.fr"
+install: [
+  [make "install"]
+]
+bug-reports: "sawja@inria.fr"
+homepage: "http://sawja.inria.fr"
+available: os != "win32" & (ocaml-version >= "4.00")
+depends: [ "ocamlfind" "javalib" {>= "2.3.2"} ]
+authors: "Sawja development team"

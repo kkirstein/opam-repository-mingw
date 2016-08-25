@@ -1,8 +1,5 @@
 opam-version: "1.2"
-name: "ocamlbuild"
 maintainer: "Gabriel Scherer <gabriel.scherer@gmail.com>"
-version: "0.9.2"
-
 authors: [
   "Nicolas Pouillard"
   "Berke Durak"
@@ -12,6 +9,7 @@ license: "LGPL-2 with OCaml linking exception"
 dev-repo: "https://github.com/ocaml/ocamlbuild.git"
 homepage: "https://github.com/ocaml/ocamlbuild/"
 bug-reports: "https://github.com/ocaml/ocamlbuild/issues"
+doc: "https://github.com/ocaml/ocamlbuild/blob/master/manual/manual.adoc"
 
 build: [
   [make "-f" "configure.make" "Makefile.config"
@@ -42,20 +40,15 @@ remove: [
   ["rm" "-rf" "%{lib}%/ocaml/ocamlbuild"] { os = "win32" }
   ["rm" "-rf" "%{lib}%/ocamlbuild"] { os = "win32" }
 ]
-
-doc: [
-  "http://caml.inria.fr/pub/docs/manual-ocaml/ocamlbuild.html"
-  "https://github.com/gasche/manual-ocamlbuild/blob/master/manual.md"
-]
-
 available: [ocaml-version >= "4.03"]
-depends: [ ]
 conflicts: [
   "base-ocamlbuild"
   "ocamlfind" {< "1.5"}
 ]
 patches: [
-  "patch-ocamlbuild" { os = "win32" }
-  "patch-meta" { os = "win32" }
-  "patch-various" { os = "win32" }
+  "patch-ocamlbuild" {os = "win32"}
+  "patch-meta" {os = "win32"}
+  "patch-various" {os = "win32"}
+  "patch-restore-old" {os = "win32"}
+  "patch-clean" {os = "win32"}
 ]

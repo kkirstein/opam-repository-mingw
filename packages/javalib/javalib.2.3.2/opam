@@ -1,0 +1,27 @@
+opam-version: "1.2"
+maintainer: "sawja@inria.fr"
+build: [
+  ["./configure.sh"]
+  [make "ptrees"]
+  [make "installptrees"]
+  [make]
+]
+bug-reports: "sawja@inria.fr"
+install: [
+  [make "install"]
+]
+bug-reports: "sawja@inria.fr"
+remove: [
+  ["ocamlfind" "remove" "javalib"]
+  ["ocamlfind" "remove" "ptrees"]
+]
+homepage: "http://sawja.inria.fr"
+available: ocaml-version >= "4.00" 
+depends: [
+  "ocamlfind"
+  "camlzip" {>= "1.05"}
+  "camlp4" 
+  "extlib-compat"
+]
+authors: "Javalib development team"
+patches: "javalib-2.3.2.patch" {os = "win32"}

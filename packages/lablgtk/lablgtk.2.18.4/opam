@@ -12,7 +12,8 @@ build: [
 install: [
   [make "install"]
 ]
-available: [ocaml-version >= "3.11.0"] # as indicated in README file
+available: [ ocaml-version >= "3.11.0" # as indicated in README file
+           & ocaml-version < "4.04.0" ]
 remove: [["ocamlfind" "remove" "lablgtk2"]]
 depends: ["ocamlfind" {>= "1.2.1"}]
 depopts: [
@@ -29,6 +30,7 @@ depexts: [
   [["fedora"] ["gtk2-devel"]]
   [["oraclelinux"] ["gtk2-devel"]]
   [["alpine"] ["gtk+2.0-dev"]]
+  [["win32" "cygwinports"] ["gtk2.0"]]
 ]
 patches: [
  "lablgldir.patch"

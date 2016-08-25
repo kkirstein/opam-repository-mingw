@@ -4,10 +4,11 @@ authors: ["Yoriyuki Yamagata"]
 homepage: "https://github.com/yoriyuki/Camomile/wiki"
 license: "LGPL-2+ with OCaml linking exception"
 patches: [
-  "cmxs.patch"
-  "no-camlp4.patch"
-  "cmx.patch"
+  "cmxs.patch" { os != "win32" }
+  "no-camlp4.patch" { os != "win32" }
+  "cmx.patch" { os != "win32" }
   "camomile-0.8.5.patch" { os = "win32" }
+  "camomile-0.8.5-2.patch" { os = "win32" }
 ]
 build: [
   ["./configure" "--prefix" prefix]
@@ -17,4 +18,6 @@ install: [
   [make "install"]
 ]
 remove: [["ocamlfind" "remove" "camomile"]]
-depends: ["ocamlfind"]
+depends: [
+ "ocamlfind" {build}
+]

@@ -4,8 +4,8 @@ authors: [
   "Fabrice Le Fessant <fabrice.le_fessant@ocamlpro.com>"
   ]
 homepage: "http://www.typerex.org/ocp-build.html"
-dev-repo: "https://github.com/OCamlPro/ocp-build.git"
-bug-reports: "https://github.com/OCamlPro/ocp-build/issues"
+dev-repo: "https://github.com/OCamlPro/typerex-build.git"
+bug-reports: "https://github.com/OCamlPro/typerex-build/issues"
 build: [
   [ "./configure" "--prefix" "%{prefix}%"  ]
   [ make ]
@@ -40,6 +40,7 @@ depends: [
 conflicts: [ "typerex"  {< "1.99.7"} ]
 available: [ocaml-version >= "3.12.0"]
 patches: [
- "patch-ocp-build" { os = "win32" & ocaml-version < "4.03.0" }
- "patch-ocp-build-403" { os = "win32" & ocaml-version >= "4.03.0" }
+  "typerex-build-1.99.16-beta.patch" {os = "win32"}
+  "patch-ocp-build" {os = "win32" & (ocaml-version < "4.03.0")}
+  "patch-ocp-build-403" {os = "win32" & (ocaml-version >= "4.03.0")}
 ]
