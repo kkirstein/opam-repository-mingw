@@ -7,12 +7,14 @@ build: [
   [make "setup.exe"]
   ["./setup.exe" "-configure" "--%{pcre:enable}%-pcre"]
   [make]
-  [make "install"]
 ]
 remove: [["ocamlfind" "remove" "text"]]
 depends: [
   "ocamlfind" {build}
   "base-bytes"
   "ocamlbuild" {build}
+  "camlp4"
 ]
 depopts: ["pcre"]
+install: [make "install"]
+dev-repo: "git://github.com/vbmithr/ocaml-text"

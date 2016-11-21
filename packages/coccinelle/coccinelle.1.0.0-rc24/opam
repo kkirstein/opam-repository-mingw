@@ -6,7 +6,6 @@ build: [
   ["./configure" "--enable-release" "--prefix" prefix]
   [make "clean"]
   [make "all.opt"]
-  [make "install"]
 ]
 remove: [
   [make "uninstall"]
@@ -23,3 +22,5 @@ depends: [
 patches: [
   "opam.patch"
 ]
+install: [make "install"]
+dev-repo: "git://github.com/coccinelle/coccinelle"

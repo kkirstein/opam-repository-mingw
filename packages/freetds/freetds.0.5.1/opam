@@ -5,9 +5,20 @@ tags: [
   "clib:sybdb"
 ]
 build: [
-  ["./configure" "--prefix" prefix "--sbindir=%{lib}%/freetds/sbin" "--libexecdir=%{lib}%/freetds/libexec" "--sysconfdir=%{lib}%/freetds/etc" "--sharedstatedir=%{lib}%/freetds/com" "--localstatedir=%{lib}%/freetds/var" "--libdir=%{lib}%/freetds/lib" "--includedir=%{lib}%/freetds/include" "--datarootdir=%{lib}%/freetds/share"]
+  [
+    "./configure"
+    "--prefix"
+    prefix
+    "--sbindir=%{lib}%/freetds/sbin"
+    "--libexecdir=%{lib}%/freetds/libexec"
+    "--sysconfdir=%{lib}%/freetds/etc"
+    "--sharedstatedir=%{lib}%/freetds/com"
+    "--localstatedir=%{lib}%/freetds/var"
+    "--libdir=%{lib}%/freetds/lib"
+    "--includedir=%{lib}%/freetds/include"
+    "--datarootdir=%{lib}%/freetds/share"
+  ]
   [make]
-  [make "install"]
 ]
 remove: [["ocamlfind" "remove" "freetds"]]
 depends: ["ocamlfind"]
@@ -15,4 +26,7 @@ depexts: [
   [["debian"] ["freetds-dev"]]
   [["ubuntu"] ["freetds-dev"]]
   [["osx" "homebrew"] ["freetds"]]
+  [["win32" "cygwinports"] ["freetds"]]
 ]
+install: [make "install"]
+patches: "freetds-0.5.1.patch" {os = "win32"}

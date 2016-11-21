@@ -4,8 +4,6 @@ build: [
   ["./configure" "--prefix" prefix]
   [make]
   [make "ocaml"]
-  [make "install"]
-  [make "ocaml-install"]
 ]
 remove: [
   ["rm" "-f" "%{prefix}%/bin/piqi" "%{prefix}%/bin/piqic"]
@@ -19,3 +17,8 @@ depends: [
   "camlp4" {< "4.02"}
   "ocamlbuild" {build}
 ]
+install: [
+  [make "install"]
+  [make "ocaml-install"]
+]
+dev-repo: "git://github.com/alavrik/piqi"

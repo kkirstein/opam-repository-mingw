@@ -3,7 +3,6 @@ maintainer: "dparfitt@basho.com"
 build: [
   ["./configure"]
   [make]
-  [make "install"]
 ]
 remove: [["ocamlfind" "remove" "riak-pb"]]
 depends: [
@@ -15,3 +14,5 @@ depexts: [
  [ ["ubuntu"] ["protobuf-compiler"] ]
  [ ["debian"] ["protobuf-compiler"] ]
 ]
+install: [make "install"]
+dev-repo: "git://github.com/metadave/riak-ocaml-pb"

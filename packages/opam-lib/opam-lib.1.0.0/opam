@@ -6,8 +6,6 @@ build: [
   ["./configure" "--prefix=%{prefix}%" "--mandir=%{prefix}%/man"]
   [make "META"]
   [make "with-ocamlbuild"]
-  [make "libinstall-with-ocamlbuild"]
-  ["rm" "opam.install"]
 ]
 remove: [["ocamlfind" "remove" "opam"]]
 depends: [
@@ -19,3 +17,8 @@ depends: [
   "ocamlfind"
   "ocamlbuild" {build}
 ]
+install: [
+  [make "libinstall-with-ocamlbuild"]
+  ["rm" "opam.install"]
+]
+dev-repo: "git://github.com/OCamlPro/opam"

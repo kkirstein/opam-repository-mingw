@@ -1,12 +1,9 @@
-opam-version: "1"
+opam-version: "1.2"
 maintainer: "ygrek@autistici.org"
 homepage: "https://github.com/mfp/extprot"
 license: "MIT"
 doc: ["https://github.com/mfp/extprot/blob/master/README.md"]
-build: [
-  ["omake"]
-  ["omake" "install" "prefix=%{prefix}%"]
-]
+build: "omake"
 build-test: [["omake" "test"] {"%{ounit:installed}"}]
 remove: [
   ["ocamlfind" "remove" "extprot"]
@@ -21,3 +18,5 @@ depends: [
 ]
 patches: ["no_bin_annot.patch" {ocaml-version < "4.00"}]
 available: [ ocaml-version < "4.02.0" ]
+install: ["omake" "install" "prefix=%{prefix}%"]
+dev-repo: "git://github.com/mfp/extprot"

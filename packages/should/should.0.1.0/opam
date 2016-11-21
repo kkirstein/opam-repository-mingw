@@ -6,10 +6,11 @@ license: "MIT"
 build: [
   ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
   ["ocaml" "setup.ml" "-build"]
-  ["ocaml" "setup.ml" "-install"]
 ]
 remove: [["ocamlfind" "remove" "should"]]
 depends: [
   "ocamlfind"
   "ocamlbuild" {build}
 ]
+install: ["ocaml" "setup.ml" "-install"]
+dev-repo: "git://github.com/mlin/should.ml"

@@ -3,7 +3,6 @@ maintainer: "dave.scott@citrix.com"
 build: [
   ["./configure" "--bindir" "%{bin}%"]
   [make]
-  [make "install"]
 ]
 remove: [
   ["ocamlfind" "remove" "message_switch"]
@@ -21,3 +20,6 @@ depends: [
   "ssl"
   "ocamlbuild" {build}
 ]
+install: [make "install"]
+available: os != "win32"
+dev-repo: "git://github.com/djs55/message-switch"

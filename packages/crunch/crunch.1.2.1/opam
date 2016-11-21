@@ -7,7 +7,6 @@ tags: [
 build: [
   ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
   ["ocaml" "setup.ml" "-build"]
-  ["ocaml" "setup.ml" "-install"]
 ]
 remove: [
   ["rm" "-f" "%{bin}%/ocaml-crunch"]
@@ -18,3 +17,5 @@ depends: [
   "cmdliner"
   "ocamlbuild" {build}
 ]
+install: ["ocaml" "setup.ml" "-install"]
+dev-repo: "git://github.com/mirage/ocaml-crunch"

@@ -3,10 +3,11 @@ maintainer: "francois.berenger@inria.fr"
 build: [
   ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
   ["ocaml" "setup.ml" "-build"]
-  ["ocaml" "setup.ml" "-install"]
 ]
 remove: [["ocamlfind" "remove" "dolog"]]
 depends: [
   "ocamlfind"
   "ocamlbuild" {build}
 ]
+install: ["ocaml" "setup.ml" "-install"]
+dev-repo: "git://github.com/HappyCrow/dolog"

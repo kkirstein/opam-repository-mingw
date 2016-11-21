@@ -4,13 +4,12 @@ tags: [
   "org:mirage"
   "org:xapi-project"
 ]
-build: [
-  [make]
-  [make "install"]
-]
+build: make
 remove: [["ocamlfind" "remove" "fd-send-recv"]]
 depends: [
   "ocamlfind"
   "ocamlbuild" {build}
 ]
 available: os != "win32"
+install: [make "install"]
+dev-repo: "git://github.com/xen-org/ocaml-fd-send-recv"

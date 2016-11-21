@@ -1,9 +1,6 @@
-opam-version: "1"
+opam-version: "1.2"
 maintainer: "pelzlpj@gmail.com"
-build: [
-  ["env" "PREFIX=%{prefix}%" "omake"]
-  ["env" "PREFIX=%{prefix}%" "omake" "install"]
-]
+build: ["env" "PREFIX=%{prefix}%" "omake"]
 remove: [["env" "PREFIX=%{prefix}%" "omake" "uninstall"]]
 depends: [
   "omake"
@@ -14,4 +11,6 @@ depends: [
   "uint"
   "camlp4"
 ]
-ocaml-version: [>= "4.01.0"]
+available: ocaml-version >= "4.01.0"
+install: ["env" "PREFIX=%{prefix}%" "omake" "install"]
+dev-repo: "git://github.com/pelzlpj/capnp-ocaml"

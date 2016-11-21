@@ -10,7 +10,6 @@ build: [
   ["oasis" "setup"]
   ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
   ["ocaml" "setup.ml" "-build"]
-  ["ocaml" "setup.ml" "-install"]
 ]
 remove: [
   ["ocamlfind" "remove" "aws"]
@@ -28,3 +27,5 @@ depends: [
   "yojson"
   "ocamlbuild" {build}
 ]
+install: ["ocaml" "setup.ml" "-install"]
+dev-repo: "git://github.com/besport/aws"

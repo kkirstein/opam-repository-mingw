@@ -4,7 +4,6 @@ build: [
   ["oasis" "setup"]
   ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
   ["ocaml" "setup.ml" "-build"]
-  ["ocaml" "setup.ml" "-install"]
 ]
 remove: [["ocamlfind" "remove" "simple_pam"]]
 depends: [
@@ -12,3 +11,6 @@ depends: [
   "ocamlfind"
   "ocamlbuild" {build}
 ]
+install: ["ocaml" "setup.ml" "-install"]
+available: os != "win32"
+dev-repo: "git://github.com/smondet/simple_pam"

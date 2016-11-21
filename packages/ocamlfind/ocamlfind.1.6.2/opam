@@ -5,6 +5,7 @@ bug-reports:  "mailto:gerd@gerd-stolpmann.de"
 dev-repo:     "git+https://gitlab.camlcity.org/gerd/lib-findlib.git"
 
 build: [
+  ["rm" "-rf" "site-lib-src/ocamlbuild"] { ocaml-version >= "4.03" }
   ["./configure" "-bindir" bin "-sitelib" lib "-mandir" man "-config" "%{lib}%/findlib.conf" "-no-topfind" {preinstalled}]
   [make "all"]
   [make "opt"] { ocaml-native }
@@ -12,6 +13,7 @@ build: [
 install: [make "install"]
 remove: [
   ["ocamlfind" "remove" "bytes"]
+  ["rm" "-rf" "site-lib-src/ocamlbuild"] { ocaml-version >= "4.03" }
   ["./configure" "-bindir" bin "-sitelib" lib "-mandir" man "-config" "%{lib}%/findlib.conf" "-no-topfind" {preinstalled}]
   [make "uninstall"]
 ]

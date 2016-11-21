@@ -1,14 +1,10 @@
-opam-version: "1"
+opam-version: "1.2"
 maintainer: "contact@ocamlpro.com"
 homepage: "http://www.typerex.org/ocp-index.html"
 license: "LGPL"
 build: [
   ["./configure" "--prefix" prefix]
   [make]
-  [make "install"]
-  ["ocp-build" "install" "ocp-browser"
-      "-install-lib" lib
-      "-install-bin" bin] {curses:installed}
 ]
 remove: [
   ["./configure" "--prefix" prefix]
@@ -34,3 +30,9 @@ To use it from emacs, add the following to your .emacs:
   (require 'ocp-index)"
   {success}
 ]
+install: [
+  [make "install"]
+  ["ocp-build" "install" "ocp-browser" "-install-lib" lib "-install-bin" bin]
+    {curses:installed}
+]
+dev-repo: "git://github.com/OCamlPro/ocp-index"

@@ -1,12 +1,10 @@
-opam-version: "1.1"
+opam-version: "1.2"
 maintainer: "benjamin@ocamlpro.com"
 depends: [ "ocamlfind" "base-unix" "pprint" ]
 homepage: "https://github.com/OCamlPro/ocp-ocamlres"
 build: [
   [make "all"]
   [make "doc"]
-  [make "BINDIR=%{bin}%" "LIBDIR=%{lib}%" "install"]
-  [make "DOCDIR=%{doc}%" "install-doc"]
 ]
 remove: [
   [make "BINDIR=%{bin}%" "LIBDIR=%{lib}%" "uninstall"]
@@ -16,3 +14,8 @@ available: [ ocaml-version >= "4.01.0" ]
 patches: [
   "non-portable-sed-option.diff"
 ]
+install: [
+  [make "BINDIR=%{bin}%" "LIBDIR=%{lib}%" "install"]
+  [make "DOCDIR=%{doc}%" "install-doc"]
+]
+dev-repo: "git://github.com/OCamlPro/ocp-ocamlres"

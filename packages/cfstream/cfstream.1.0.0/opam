@@ -1,9 +1,8 @@
-opam-version: "1"
+opam-version: "1.2"
 maintainer: "agarwal1975@gmail.com"
 build: [
   ["rm" "-f" "configure.om"]
   ["omake"]
-  ["omake" "cfstream.install"]
 ]
 build-doc: [
   ["omake" "doc"]
@@ -14,4 +13,6 @@ depends: [
   "omake"
   "core"
 ]
-ocaml-version: [>="4.00.0"]
+available: ocaml-version >= "4.00.0"
+install: ["omake" "cfstream.install"]
+dev-repo: "git://github.com/biocaml/cfstream"

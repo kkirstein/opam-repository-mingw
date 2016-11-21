@@ -1,4 +1,4 @@
-opam-version: "1"
+opam-version: "1.2"
 maintainer: "francois.berenger@inria.fr"
 authors: ["Bertrand Jeannet and Antoine Mine et. al."]
 homepage: "http://apron.cri.ensmp.fr/library/"
@@ -6,7 +6,6 @@ license: "LGPL"
 build: [
   ["make" "rebuild"]
   ["make"]
-  ["make" "install"]
 ]
 remove: [
   ["ocamlfind" "-remove" "apron"]
@@ -24,4 +23,6 @@ patches: [
 conflicts: [
   "mlgmp"
 ]
-os: ["linux"]
+available: os = "linux"
+install: ["make" "install"]
+dev-repo: "git://github.com/UnixJunkie/apron-vanilla"

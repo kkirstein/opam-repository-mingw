@@ -7,8 +7,6 @@ build: [
   [make "META"]
   [make "src/core/opamGitVersion.ml"]
   [make "LOCAL_OCPBUILD=ocp-build" "compile"]
-  [make "libinstall"]
-  ["rm" "opam.install"]
 ]
 remove: [["ocamlfind" "remove" "opam"]]
 depends: [
@@ -20,3 +18,8 @@ depends: [
   "ocamlfind"
   "ocamlbuild" {build}
 ]
+install: [
+  [make "libinstall"]
+  ["rm" "opam.install"]
+]
+dev-repo: "git://github.com/OCamlPro/opam"

@@ -11,9 +11,10 @@ patches: [
 build: [
   ["./configure"]
   [make]
-  [make "install"]
 ]
 remove: [
   ["ocamlfind" "remove" "mezzo"]
 ]
-ocaml-version: [>= "4.00.1"]
+available: os != "win32" & (ocaml-version >= "4.00.1")
+install: [make "install"]
+dev-repo: "git://github.com/protz/mezzo"

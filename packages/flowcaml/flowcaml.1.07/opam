@@ -15,5 +15,4 @@ remove: [
   ["sh" "-c" "cd src-flowcaml && %{make}% uninstall"]
 ]
 install: ["sh" "-c" "cd src-flowcaml && %{make}% install"]
-
-available: [ ocaml-version < "4.04.0" ]
+available: os != "win32"

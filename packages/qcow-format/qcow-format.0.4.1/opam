@@ -1,5 +1,4 @@
 opam-version: "1.2"
-name: "qcow-format"
 maintainer: "dave@recoil.org"
 authors: [ "David Scott" ]
 license: "ISC"
@@ -26,7 +25,7 @@ depends: [
   "mirage-types-lwt"
   "lwt"
   "mirage-block" {>= "0.2" }
-  "mirage-block-unix" {>= "2.1.0" }
+  "mirage-block-unix" {>= "2.1.0" & < "2.4.0" }
   "cmdliner"
   "sexplib"
   "logs"
@@ -51,3 +50,4 @@ build-test: [
 ]
 
 available: [ocaml-version >= "4.02.0"]
+patches: "ocaml-qcow-0.4.1.patch" {os = "win32"}
