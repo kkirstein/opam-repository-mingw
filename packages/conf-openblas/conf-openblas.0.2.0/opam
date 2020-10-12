@@ -16,6 +16,8 @@ build: [
     {os-distribution = "arch"}
   ["sh" "-exc" "cc $CFLAGS -I/usr/local/include -L/usr/local/lib test.c -lopenblas"]
     {os = "freebsd"}
+  ["sh" "-exc" "x86_64-w64-mingw32-gcc $CFLAGS test.c -lopenblas"]
+    {os = "win32" & os-distribution = "cygwinports"}
   ["sh" "-exc" "cc $CFLAGS test.c -lopenblas"]
     {os-distribution != "fedora" & os-distribution != "centos" & os-family != "suse" & os != "macos" & os-distribution != "arch" & os != "freebsd"}
 ]
